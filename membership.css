@@ -1,0 +1,29 @@
+input{padding-bottom:5px;}
+
+.button {
+    width: 1px;
+    border: 1px;
+}
+
+.mainTb {
+    border: 1px solid black;
+    width: 100%;
+    border-collapse: collapse;
+}
+.mainTb tr th {
+    border: 1px solid black;
+} 
+.mainTb td {
+    border: 1px solid black;
+    vertical-align: top;
+    text-입력align: center;
+}
+
+.subTb tr td {
+    border-left: 0 solid black;
+    border-right: 0 solid black;
+    border-top: 0 solid black;
+    border-bottom: 1 solid black;
+}
+
+.tbUp{background-color: yellow;}

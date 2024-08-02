@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<link rel="stylesheet" href="membership.css" />
+
+<head>
+    <meta charset="UTF-8">
+    <title>Membership</title>
+
+    <script>
+        function addComment() {
+            var comment = document.querySelector('.comment').value;
+            var writer = document.querySelector('.writer').value;
+
+            if (comment === "" || writer === "") {
+                alert("댓글과 작성자 이름을 모두 입력해주세요.");
+                return;
+            }
+
+            var newRow = document.createElement('tr');
+
+            var cell1 = document.createElement('td');
+            var cell2 = document.createElement('td');
+            var cell3 = document.createElement('td');
+            var cell4 = document.createElement('td');
+            var cell5 = document.createElement('td');
+
+            var subTb = document.querySelector('.subTb');
+            var commentNumber = subTb.rows.length;
+
+            cell1.textContent = commentNumber;
+            cell2.textContent = comment;
+            cell3.textContent = writer;
+
+            var editButton = document.createElement('button');
+            editButton.textContent = '수정';
+            cell4.appendChild(editButton);
+
+            var deleteButton = document.createElement('button');
+            deleteButton.textContent = '삭제';
+            cell5.appendChild(deleteButton);
+
+            newRow.appendChild(cell1);
+            newRow.appendChild(cell2);
+            newRow.appendChild(cell3);
+            newRow.appendChild(cell4);
+            newRow.appendChild(cell5);
+
+            subTb.appendChild(newRow);
+
+            document.querySelector('.comment').value = '';
+            document.querySelector('.writer').value = '';
+        }
+    </script>
+</head>
+
+<body>
+    <div>
+        <form>
+            <label for="name"><span>이름 </span></label>
+            <input type="text" id="uname"><br/>
+            <label for="name"><span>부서 </span></label>
+            <input type="text" id="uname"><br/>
+            <label for="name"><span>직책 </span></label>
+            <input type="text" id="uname"><br/>
+            <label for="name"><span>사진 </span></label>
+            <input type="file" id="inFile"><br/>
+        </form>
+    </div>
+
+    <div>
+        <input type="checkbox" name="favorit" id="favorit" value="sw개발" checked> SW개발
+        <input type="checkbox" name="favorit" id="favorit" value="영업" checked> 영업
+        <input type="checkbox" name="favorit" id="favorit" value="독서"> 독서
+        <input type="checkbox" name="favorit" id="favorit" value="직업교육"> 직업교육
+    </div>
+    
+    <br/><br/>
+    <hr/>
+    <br/><br/>
+
+    <p>검색 <input type="text"> <button>검색</button></p>
+    <table class="mainTb">
+        <tr>
+            <td class="tbUp"><input type="checkbox"></td>
+            <td class="tbUp">번호</td>
+            <td class="tbUp">사진</td>
+            <td class="tbUp">사원명</td>
+            <td class="tbUp">부서</td>
+            <td class="tbUp">직급</td>
+            <td class="tbUp">수정</td>
+            <td class="tbUp">삭제</td>
+        </tr>
+
+        <tr>
+            <td rowspan="6"><input type="checkbox"></td>
+            <td rowspan="6">1001</td>
+            <td><img src="./poto/1.png" alt="증명사진" width="200px" height="150px"></td>
+            <td>홍길동</td>
+            <td>개발</td>
+            <td vertical-align="top">대리</td>
+            <td rowspan="6" vertical-align="top"><button>수정</button></td>
+            <td rowspan="6"><button>삭제</button></td>
+        </tr>
+
+        <tr>
+            <td colspan="4">
+                <div>
+                    <table class="subTb" width="100%" cellspacing="0">
+                        <tr>
+                            <td width="50px">번호</td>
+                            <td>댓글내용</td>
+                            <td>작성자</td>
+                            <td>수정</td>
+                            <td>삭제</td>
+                        </tr>
+
+                        <tr>
+                            <td>1</td>
+                            <td>멋진 사진입니다.</td>
+                            <td>한상훈</td>
+                            <td><button>수정</button></td>
+                            <td><button>삭제</button></td>
+                        </tr>
+
+                        <tr>
+                            <td>2</td>
+                            <td>좋아요^^ 퍼가요~</td>
+                            <td>박건도</td>
+                            <td><button>수정</button></td>
+                            <td><button>삭제</button></td>
+                        </tr>
+                    </table>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                댓글 <input type="text" class="comment">
+                작성자 <input type="text" class="writer">
+                <button class="inputComment" onclick="addComment()">댓글입력</button>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
